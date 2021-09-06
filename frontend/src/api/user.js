@@ -2,7 +2,15 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/vue-element-admin/user/login',
+    url: '/token/get',
+    method: 'post',
+    data
+  })
+}
+
+export async function resettoken(data) {
+  return await request({
+    url: '/token/refresh',
     method: 'post',
     data
   })

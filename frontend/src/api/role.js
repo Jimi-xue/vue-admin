@@ -23,6 +23,7 @@ export function addRole(data) {
 }
 
 export function updateRole(id, data) {
+  console.log(data)
   return request({
     url: `/vue-element-admin/role/${id}`,
     method: 'put',

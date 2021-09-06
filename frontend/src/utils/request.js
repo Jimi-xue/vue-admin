@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { MessageBox, Message } from 'element-ui'
 import store from '@/store'
-import { getToken } from '@/utils/auth'
+import { getToken,getRefresh,removeToken,setToken } from '@/utils/auth'
+import { resettoken } from '@/api/user'
 
 // create an axios instance
 const service = axios.create({
@@ -19,7 +20,7 @@ service.interceptors.request.use(
       // let each request carry token
       // ['X-Token'] is a custom headers key
       // please modify it according to the actual situation
-      config.headers['X-Token'] = getToken()
+      config.headers['Authorization'] = "Bearer " + getToken()
     }
     return config
   },
@@ -43,37 +44,62 @@ service.interceptors.response.use(
    * You can also judge the status by HTTP Status Code
    */
   response => {
-    const res = response.data
-    console.log(response)
-    // if the custom code is not 20000, it is judged as an error.
-    if (res.code !== 20000) {
-      console.log(res.code)
-      console.log("error")
-      Message({
-        message: res.message || 'Error',
-        type: 'error',
-        duration: 5 * 1000
-      })
 
-      // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
-      if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
-        // to re-login
-        MessageBox.confirm('You have been logged out, you can cancel to stay on this page, or log in again', 'Confirm logout', {
-          confirmButtonText: 'Re-Login',
-          cancelButtonText: 'Cancel',
-          type: 'warning'
-        }).then(() => {
-          store.dispatch('user/resetToken').then(() => {
-            location.reload()
-          })
+    const res = response.data
+    // if the custom code is not 20000, it is judged as an error.
+    console.log(response.status)
+    if (res.code === 20000 || response.status === 200 || response.status === 401){
+        return res
+      } else {
+        console.log("error")
+        Message({
+          message: res.message || 'Error',
+          type: 'error',
+          duration: 5 * 1000
         })
-      }
-      return Promise.reject(new Error(res.message || 'Error'))
-    } else {
-      return res
+
+        // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
+        if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
+          // to re-login
+          MessageBox.confirm('You have been logged out, you can cancel to stay on this page, or log in again', 'Confirm logout', {
+            confirmButtonText: 'Re-Login',
+            cancelButtonText: 'Cancel',
+            type: 'warning'
+          }).then(() => {
+            store.dispatch('user/resetToken').then(() => {
+              location.reload()
+            })
+          })
+        }
+        return Promise.reject(new Error(res.message || 'Error'))
     }
   },
   error => {
+    if (error.response){
+      console.log(error.response)
+      switch (error.response.status){
+        case 401:
+          if (error.response.data.detail === "Given token not valid for any token type") {
+            console.log(401)
+            const data = {"refresh": getRefresh()}
+            resettoken(data).then(response => {
+              const token = response.access
+              removeToken()
+              setToken(token)
+            })
+
+            error.config.url = error.config.url.replace("/api", "")
+            return service(error.config).then(response => {
+              return response
+            })
+          }else if (error.response.data.detail === "Token is invalid or expired"){
+                store.dispatch('user/resetToken').then(() => {
+                  location.reload()
+              })
+          }
+      }
+
+    }else{
     console.log('err' + error) // for debug
     Message({
       message: error.message,
@@ -81,6 +107,7 @@ service.interceptors.response.use(
       duration: 5 * 1000
     })
     return Promise.reject(error)
+  }
   }
 )
 

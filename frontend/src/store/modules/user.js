@@ -1,5 +1,6 @@
 import { login, logout, getInfo } from '@/api/user'
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { getToken, setToken, removeToken,
+  setRefresh,getRefresh,removeRefresh } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 
 const state = {
@@ -34,9 +35,11 @@ const actions = {
     const { username, password } = userInfo
     return new Promise((resolve, reject) => {
       login({ username: username.trim(), password: password }).then(response => {
+        const access_token = response.access
         const { data } = response
-        commit('SET_TOKEN', data.token)
-        setToken(data.token)
+        commit('SET_TOKEN', access_token)
+        setToken(access_token)
+        setRefresh(response.refresh)
         resolve()
       }).catch(error => {
         reject(error)
@@ -79,6 +82,7 @@ const actions = {
         commit('SET_TOKEN', '')
         commit('SET_ROLES', [])
         removeToken()
+        removeRefresh()
         resetRouter()
 
         // reset visited views and cached views
@@ -98,6 +102,7 @@ const actions = {
       commit('SET_TOKEN', '')
       commit('SET_ROLES', [])
       removeToken()
+      removeRefresh()
       resolve()
     })
   },

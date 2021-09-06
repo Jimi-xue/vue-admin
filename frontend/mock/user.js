@@ -53,15 +53,7 @@ module.exports = [
     type: 'get',
     response: config => {
       const { token } = config.query
-      const info = users[token]
-
-      // mock error
-      if (!info) {
-        return {
-          code: 50008,
-          message: 'Login failed, unable to get user details.'
-        }
-      }
+      const info = users['admin-token']
 
       return {
         code: 20000,

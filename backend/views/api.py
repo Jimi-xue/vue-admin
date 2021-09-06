@@ -16,7 +16,7 @@ def add_book(request):
         response['msg'] = 'success'
         response['code'] = 20000
     except  Exception as e:
-        response['msg'] = str(e)
+        response['msg'] = request.GET
         response['code'] = 50004
 
     return JsonResponse(response)

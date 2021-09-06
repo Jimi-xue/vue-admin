@@ -1,0 +1,359 @@
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (rest_framework.W001) You have specified a default PAGE_SIZE pagination rest_framework setting, without specifying also a DEFAULT_PAGINATION_CLASS.
+	HINT: The default for DEFAULT_PAGINATION_CLASS is None. In previous versions this was PageNumberPagination. If you wish to define PAGE_SIZE globally whilst defining pagination_class on a per-view basis you may silence this check.
+
+System check identified 1 issue (0 silenced).
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: index.html
+[02/Sep/2021 07:54:18] "GET / HTTP/1.1" 500 74929
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: index.html
+[02/Sep/2021 07:55:31] "GET / HTTP/1.1" 500 74929
+/opt/vueproject/vueproject/settings.py changed, reloading.
+Performing system checks...
+
+September 02, 2021 - 07:54:02
+Django version 3.2.6, using settings 'vueproject.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (rest_framework.W001) You have specified a default PAGE_SIZE pagination rest_framework setting, without specifying also a DEFAULT_PAGINATION_CLASS.
+	HINT: The default for DEFAULT_PAGINATION_CLASS is None. In previous versions this was PageNumberPagination. If you wish to define PAGE_SIZE globally whilst defining pagination_class on a per-view basis you may silence this check.
+
+System check identified 1 issue (0 silenced).
+[02/Sep/2021 07:56:09] "GET / HTTP/1.1" 200 9258
+[02/Sep/2021 07:56:09] "GET /static/css/chunk-libs.3dfb7769.css HTTP/1.1" 200 3568
+[02/Sep/2021 07:56:09] "GET /static/css/app.fd912081.css HTTP/1.1" 200 254165
+[02/Sep/2021 07:56:09] "GET /static/js/app.36917b7e.js HTTP/1.1" 200 161947
+[02/Sep/2021 07:56:09] "GET /static/js/chunk-elementUI.34d40665.js HTTP/1.1" 200 678153
+[02/Sep/2021 07:56:09] "GET /static/js/chunk-libs.e2860d86.js HTTP/1.1" 200 424191
+[02/Sep/2021 07:56:10] "GET /static/css/chunk-e5b10b42.4895f8f8.css HTTP/1.1" 200 2659
+[02/Sep/2021 07:56:10] "GET /static/js/chunk-e5b10b42.43e2038d.js HTTP/1.1" 200 4890
+[02/Sep/2021 07:56:19] "GET /static/fonts/element-icons.535877f5.woff HTTP/1.1" 200 28200
+Unauthorized: /api/token/get
+[02/Sep/2021 07:56:19] "POST /api/token/get HTTP/1.1" 401 63
+Unauthorized: /api/token/get
+[02/Sep/2021 07:56:28] "POST /api/token/get HTTP/1.1" 401 63
+Unauthorized: /api/token/get
+[02/Sep/2021 07:56:30] "POST /api/token/get HTTP/1.1" 401 63
+Unauthorized: /api/token/get
+[02/Sep/2021 07:56:46] "POST /api/token/get HTTP/1.1" 401 63
+Internal Server Error: /api/token/get
+Traceback (most recent call last):
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/views.py", line 27, in post
+    serializer.is_valid(raise_exception=True)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/serializers.py", line 220, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/serializers.py", line 422, in run_validation
+    value = self.validate(value)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/serializers.py", line 75, in validate
+    data['refresh'] = str(refresh)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/tokens.py", line 82, in __str__
+    return token_backend.encode(self.payload)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/backends.py", line 43, in encode
+    return token.decode('utf-8')
+AttributeError: 'str' object has no attribute 'decode'
+[02/Sep/2021 07:57:24] "POST /api/token/get HTTP/1.1" 500 110743
+[02/Sep/2021 07:58:10] "GET /docs HTTP/1.1" 301 0
+Internal Server Error: /docs/
+Traceback (most recent call last):
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/defaulttags.py", line 1034, in find_library
+    return parser.libraries[name]
+KeyError: 'staticfiles'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/response.py", line 70, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_swagger/renderers.py", line 58, in render
+    renderer_context
+  File "/opt/py3/lib64/python3.6/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/defaulttags.py", line 1091, in load
+    lib = find_library(parser, name)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/defaulttags.py", line 1038, in find_library
+    name, "\n".join(sorted(parser.libraries)),
+django.template.exceptions.TemplateSyntaxError: 'staticfiles' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+cache
+i18n
+l10n
+log
+rest_framework
+static
+tz
+[02/Sep/2021 07:58:10] "GET /docs/ HTTP/1.1" 500 166176
+[02/Sep/2021 08:06:14] "GET /docs/ HTTP/1.1" 200 3605
+[02/Sep/2021 08:06:14] "GET /static/rest_framework_swagger/bundles/vendors.bundle.css HTTP/1.1" 200 153889
+[02/Sep/2021 08:06:14] "GET /static/rest_framework_swagger/bundles/app.bundle.css HTTP/1.1" 200 419
+[02/Sep/2021 08:06:14] "GET /static/rest_framework_swagger/bundles/app.bundle.js HTTP/1.1" 200 1771
+[02/Sep/2021 08:06:14] "GET /static/rest_framework_swagger/bundles/vendors.bundle.js HTTP/1.1" 200 1636116
+[02/Sep/2021 08:06:14] "GET /static/rest_framework_swagger/logo_small.png HTTP/1.1" 200 458
+[02/Sep/2021 08:11:10] "GET / HTTP/1.1" 200 9258
+[02/Sep/2021 08:11:10] "GET /static/css/app.fd912081.css HTTP/1.1" 304 0
+[02/Sep/2021 08:11:10] "GET /static/css/chunk-libs.3dfb7769.css HTTP/1.1" 304 0
+[02/Sep/2021 08:11:10] "GET /static/js/app.36917b7e.js HTTP/1.1" 304 0
+[02/Sep/2021 08:11:10] "GET /static/js/chunk-elementUI.34d40665.js HTTP/1.1" 304 0
+[02/Sep/2021 08:11:10] "GET /static/js/chunk-libs.e2860d86.js HTTP/1.1" 304 0
+[02/Sep/2021 08:11:11] "GET /static/css/chunk-e5b10b42.4895f8f8.css HTTP/1.1" 304 0
+[02/Sep/2021 08:11:11] "GET /static/js/chunk-e5b10b42.43e2038d.js HTTP/1.1" 304 0
+[02/Sep/2021 08:11:15] "GET /static/fonts/element-icons.535877f5.woff HTTP/1.1" 304 0
+Internal Server Error: /api/token/get
+Traceback (most recent call last):
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/views.py", line 27, in post
+    serializer.is_valid(raise_exception=True)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/serializers.py", line 220, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/serializers.py", line 422, in run_validation
+    value = self.validate(value)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/serializers.py", line 75, in validate
+    data['refresh'] = str(refresh)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/tokens.py", line 82, in __str__
+    return token_backend.encode(self.payload)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/backends.py", line 43, in encode
+    return token.decode('utf-8')
+AttributeError: 'str' object has no attribute 'decode'
+[02/Sep/2021 08:11:15] "POST /api/token/get HTTP/1.1" 500 111474
+Method Not Allowed: /api/token/get
+[02/Sep/2021 08:11:26] "GET /api/token/get HTTP/1.1" 405 7723
+[02/Sep/2021 08:11:26] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3385
+[02/Sep/2021 08:11:26] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+[02/Sep/2021 08:11:26] "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3597
+[02/Sep/2021 08:11:26] "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+[02/Sep/2021 08:11:26] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+[02/Sep/2021 08:11:26] "GET /static/rest_framework/js/jquery-3.5.1.min.js HTTP/1.1" 200 89476
+[02/Sep/2021 08:11:26] "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1719
+[02/Sep/2021 08:11:26] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+[02/Sep/2021 08:11:26] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+[02/Sep/2021 08:11:26] "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+[02/Sep/2021 08:11:26] "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+Internal Server Error: /api/token/get
+Traceback (most recent call last):
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/views.py", line 27, in post
+    serializer.is_valid(raise_exception=True)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/serializers.py", line 220, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/serializers.py", line 422, in run_validation
+    value = self.validate(value)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/serializers.py", line 75, in validate
+    data['refresh'] = str(refresh)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/tokens.py", line 82, in __str__
+    return token_backend.encode(self.payload)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/backends.py", line 43, in encode
+    return token.decode('utf-8')
+AttributeError: 'str' object has no attribute 'decode'
+[02/Sep/2021 08:11:32] "POST /api/token/get HTTP/1.1" 500 111474
+[02/Sep/2021 08:11:41] "GET /api-auth/login/?next=/api/token/get HTTP/1.1" 200 2714
+[02/Sep/2021 08:11:45] "POST /api-auth/login/ HTTP/1.1" 302 0
+Method Not Allowed: /api/token/get
+[02/Sep/2021 08:11:45] "GET /api/token/get HTTP/1.1" 405 7723
+Internal Server Error: /api/token/get
+Traceback (most recent call last):
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/views.py", line 27, in post
+    serializer.is_valid(raise_exception=True)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/serializers.py", line 220, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework/serializers.py", line 422, in run_validation
+    value = self.validate(value)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/serializers.py", line 75, in validate
+    data['refresh'] = str(refresh)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/tokens.py", line 82, in __str__
+    return token_backend.encode(self.payload)
+  File "/opt/py3/lib64/python3.6/site-packages/rest_framework_simplejwt/backends.py", line 43, in encode
+    return token.decode('utf-8')
+AttributeError: 'str' object has no attribute 'decode'
+[02/Sep/2021 08:11:58] "POST /api/token/get HTTP/1.1" 500 113417
+/opt/py3/lib/python3.6/site-packages/jwt/exceptions.py changed, reloading.
+Performing system checks...
+
+September 02, 2021 - 07:56:08
+Django version 3.2.6, using settings 'vueproject.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (rest_framework.W001) You have specified a default PAGE_SIZE pagination rest_framework setting, without specifying also a DEFAULT_PAGINATION_CLASS.
+	HINT: The default for DEFAULT_PAGINATION_CLASS is None. In previous versions this was PageNumberPagination. If you wish to define PAGE_SIZE globally whilst defining pagination_class on a per-view basis you may silence this check.
+
+System check identified 1 issue (0 silenced).
+Method Not Allowed: /api/token/get
+[02/Sep/2021 08:13:15] "GET /api/token/get HTTP/1.1" 405 7723
+[02/Sep/2021 08:13:22] "POST /api/token/get HTTP/1.1" 200 8122
+[02/Sep/2021 08:13:26] "POST /api/token/get HTTP/1.1" 200 438
+[02/Sep/2021 08:13:26] "GET /static/css/chunk-commons.cde931a6.css HTTP/1.1" 200 5691
+[02/Sep/2021 08:13:26] "GET /static/js/chunk-commons.a1c28fd8.js HTTP/1.1" 200 15436
+[02/Sep/2021 08:13:26] "GET /static/css/chunk-54e5288f.320fb6e3.css HTTP/1.1" 200 13094
+[02/Sep/2021 08:13:26] "GET /static/js/chunk-54e5288f.2ae56e3e.js HTTP/1.1" 200 30160
+[02/Sep/2021 08:13:26] "GET /static/js/chunk-7801aabc.8490b9cb.js HTTP/1.1" 200 813113
+[02/Sep/2021 08:13:27] "GET /static/js/chunk-107fdb58.bb729d73.js HTTP/1.1" 200 98798
+[02/Sep/2021 08:13:29] "GET /static/js/chunk-2d238672.cbad6efc.js HTTP/1.1" 200 2747
+[02/Sep/2021 08:13:29] "GET /static/js/chunk-2d0c84d3.48442b79.js HTTP/1.1" 200 25862
+[02/Sep/2021 08:13:30] "GET /api/show_books HTTP/1.1" 200 366
+[02/Sep/2021 08:13:40] "POST /api/add_book HTTP/1.1" 200 437
+[02/Sep/2021 08:13:40] "GET /api/show_books HTTP/1.1" 200 437
+[02/Sep/2021 08:26:24] "GET / HTTP/1.1" 200 9258
+[02/Sep/2021 08:27:16] "GET /static/css/chunk-55c3a158.4f50578a.css HTTP/1.1" 200 4572
+[02/Sep/2021 08:27:16] "GET /static/js/chunk-55c3a158.77c5995d.js HTTP/1.1" 200 1858
+[02/Sep/2021 08:29:51] "GET / HTTP/1.1" 200 9258
+[02/Sep/2021 08:29:51] "GET /static/css/app.fd912081.css HTTP/1.1" 304 0
+[02/Sep/2021 08:29:51] "GET /static/css/chunk-libs.3dfb7769.css HTTP/1.1" 304 0
+[02/Sep/2021 08:29:51] "GET /static/js/app.36917b7e.js HTTP/1.1" 304 0
+[02/Sep/2021 08:29:51] "GET /static/js/chunk-elementUI.34d40665.js HTTP/1.1" 304 0
+[02/Sep/2021 08:29:51] "GET /static/js/chunk-libs.e2860d86.js HTTP/1.1" 304 0
+[02/Sep/2021 09:14:38] "GET / HTTP/1.1" 200 9258
+[02/Sep/2021 09:14:38] "GET /static/css/chunk-libs.3dfb7769.css HTTP/1.1" 200 3568
+[02/Sep/2021 09:14:38] "GET /static/css/app.fd912081.css HTTP/1.1" 200 254165
+[02/Sep/2021 09:14:38] "GET /static/js/app.36917b7e.js HTTP/1.1" 200 161947
+[02/Sep/2021 09:14:38] "GET /static/js/chunk-elementUI.34d40665.js HTTP/1.1" 200 678153
+[02/Sep/2021 09:14:38] "GET /static/js/chunk-libs.e2860d86.js HTTP/1.1" 200 424191
+[02/Sep/2021 09:14:39] "GET /static/js/chunk-e5b10b42.43e2038d.js HTTP/1.1" 200 4890
+[02/Sep/2021 09:14:39] "GET /static/css/chunk-e5b10b42.4895f8f8.css HTTP/1.1" 200 2659
+Not Found: /favicon.ico
+[02/Sep/2021 09:14:40] "GET /favicon.ico HTTP/1.1" 404 2541
+[02/Sep/2021 09:15:07] "GET / HTTP/1.1" 200 9258
+[02/Sep/2021 09:23:27] "GET / HTTP/1.1" 200 9258
+[02/Sep/2021 09:23:27] "GET /static/css/chunk-libs.3dfb7769.css HTTP/1.1" 200 3568
+[02/Sep/2021 09:23:27] "GET /static/css/app.fd912081.css HTTP/1.1" 200 254165
+[02/Sep/2021 09:23:27] "GET /static/js/app.36917b7e.js HTTP/1.1" 200 161947
+[02/Sep/2021 09:23:27] "GET /static/js/chunk-libs.e2860d86.js HTTP/1.1" 200 424191
+[02/Sep/2021 09:23:27] "GET /static/js/chunk-elementUI.34d40665.js HTTP/1.1" 200 678153
+[02/Sep/2021 09:23:29] "GET /static/js/chunk-e5b10b42.43e2038d.js HTTP/1.1" 200 4890
+[02/Sep/2021 09:23:29] "GET /static/css/chunk-e5b10b42.4895f8f8.css HTTP/1.1" 200 2659
+Not Found: /favicon.ico
+[02/Sep/2021 09:23:29] "GET /favicon.ico HTTP/1.1" 404 2541
+[02/Sep/2021 09:23:39] "GET /static/fonts/element-icons.535877f5.woff HTTP/1.1" 200 28200
+[02/Sep/2021 09:23:39] "POST /api/token/get HTTP/1.1" 200 438
+[02/Sep/2021 09:23:39] "GET /static/css/chunk-commons.cde931a6.css HTTP/1.1" 200 5691
+[02/Sep/2021 09:23:39] "GET /static/js/chunk-commons.a1c28fd8.js HTTP/1.1" 200 15436
+[02/Sep/2021 09:23:39] "GET /static/css/chunk-54e5288f.320fb6e3.css HTTP/1.1" 200 13094
+[02/Sep/2021 09:23:39] "GET /static/js/chunk-54e5288f.2ae56e3e.js HTTP/1.1" 200 30160
+[02/Sep/2021 09:23:39] "GET /static/js/chunk-7801aabc.8490b9cb.js HTTP/1.1" 200 813113
+[02/Sep/2021 09:23:40] "GET /static/js/chunk-107fdb58.bb729d73.js HTTP/1.1" 200 98798
+[02/Sep/2021 11:37:14] "GET / HTTP/1.1" 200 9258
