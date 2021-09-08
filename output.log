@@ -357,3 +357,37 @@ Not Found: /favicon.ico
 [02/Sep/2021 09:23:39] "GET /static/js/chunk-7801aabc.8490b9cb.js HTTP/1.1" 200 813113
 [02/Sep/2021 09:23:40] "GET /static/js/chunk-107fdb58.bb729d73.js HTTP/1.1" 200 98798
 [02/Sep/2021 11:37:14] "GET / HTTP/1.1" 200 9258
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: index.html
+[08/Sep/2021 01:43:46] "GET / HTTP/1.1" 500 75134
+Not Found: /favicon.ico
+[08/Sep/2021 01:43:46] "GET /favicon.ico HTTP/1.1" 404 2541
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/opt/py3/lib64/python3.6/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/opt/py3/lib64/python3.6/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: index.html
+[08/Sep/2021 01:43:55] "GET / HTTP/1.1" 500 74962

@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from backend.views.serializers import BookSerializer
 from backend.models import Book
 from backend.forms import BookForm
-from vueproject.view import DocParam
+from opsrobot.view import DocParam
 
 
 

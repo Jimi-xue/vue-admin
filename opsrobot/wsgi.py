@@ -1,5 +1,5 @@
 """
-WSGI config for vueproject project.
+WSGI config for opsrobot project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vueproject.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'opsrobot.settings')
 
 application = get_wsgi_application()
