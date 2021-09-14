@@ -14,12 +14,39 @@
           <span class="link-type" @click="handleFetchPv(row.id)">{{ row.id }}</span>
         </template>
       </el-table-column>
-        <el-table-column align="center" label="name">
+        <el-table-column align="center" label="hostname">
         <template slot-scope="{row}">
           <template v-if="row.edit">
-          <el-input v-model="row.book_name" class="edit-input" size="small" />
+          <el-input v-model="row.hostname" class="edit-input" size="small" />
           </template>
-          <span v-else>{{ row.book_name }}</span>
+          <span v-else>{{ row.hostname }}</span>
+        </template>
+          <el-input  class="edit-input" size="small" />
+      </el-table-column>
+              <el-table-column align="center" label="ip">
+        <template slot-scope="{row}">
+          <template v-if="row.edit">
+          <el-input v-model="row.ip_addr" class="edit-input" size="small" />
+          </template>
+          <span v-else>{{ row.ip_addr }}</span>
+        </template>
+          <el-input  class="edit-input" size="small" />
+      </el-table-column>
+      <el-table-column align="center" label="asset">
+        <template slot-scope="{row}">
+          <template v-if="row.edit">
+          <el-input v-model="row.asset_id" class="edit-input" size="small" />
+          </template>
+          <span v-else>{{ row.asset_id }}</span>
+        </template>
+          <el-input  class="edit-input" size="small" />
+      </el-table-column>
+            <el-table-column align="center" label="remark">
+        <template slot-scope="{row}">
+          <template v-if="row.edit">
+          <el-input v-model="row.remark" class="edit-input" size="small" />
+          </template>
+          <span v-else>{{ row.remark }}</span>
         </template>
           <el-input  class="edit-input" size="small" />
       </el-table-column>
@@ -31,9 +58,9 @@
       <el-table-column align="center" label="操作">
         <template slot-scope="{row}">
           <template v-if="row.edit">
-           <span class="link-type" @click="add_book(row.book_name)">添加</span>
+           <span class="link-type" @click="add_book(row.hostname,row.ip_addr,row.asset_id,row.remark)">添加</span>
           </template>
-          <span class="link-type" @click="deletebook(row.book_name)" v-else>删除</span>
+          <span class="link-type" @click="deletebook(row.hostname)" v-else>删除</span>
         </template>
       </el-table-column>
       </el-table>
@@ -49,7 +76,10 @@ export default {
     return {
       tableData: [],
       form: {
-          book_name: ''
+          hostname: '',
+          ip_addr: '',
+          asset_id: '',
+          remark: '',
         },
       new_data:{},
     }
@@ -76,17 +106,17 @@ export default {
         this.getbook()
       })
     },
-    deletebook(book_name){
-      delBook(book_name).then(response => {
+    deletebook(hostname){
+      delBook(hostname).then(response => {
           this.getbook()
       })
     },
     add_line(){
-      this.new_data = {"book_name":null,"add_time":null,"id":null,"edit":'1'}
+      this.new_data = {"hostname":null,"ip_addr":null,"asset_id":null,"remark":null,"add_time":null,"id":null,"edit":'1'}
       this.tableData.push(this.new_data)
     },
-    add_book(book_name){
-      setBook({"book_name":book_name}).then(response => {
+    add_book(hostname,ip_addr,asset_id,remark){
+      setBook({"hostname":hostname,"ip_addr":ip_addr,"asset_id":asset_id,"remark":remark}).then(response => {
         this.getbook()
       })
     }

@@ -1,11 +1,11 @@
-from backend.models import Book
+from backend.models import Host
 from rest_framework import serializers
 from django.contrib.auth.models import User
 
-class BookSerializer(serializers.ModelSerializer):
+class HostSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Book
-        fields = ('id','book_name','add_time' )
+        model = Host
+        fields = ('id','hostname','ip_addr',"remark","asset_id","add_time" )
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

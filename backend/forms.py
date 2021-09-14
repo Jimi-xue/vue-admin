@@ -1,9 +1,9 @@
 from django import forms
-from backend.models import Book
+from backend.models import Host
 
-class BookForm(forms.ModelForm):
-    book_name = forms.CharField(label="书名")
+class HostForm(forms.ModelForm):
+    hostname = forms.CharField(label="主机名")
 
     class Meta:
-         model=Book
-         fields=('book_name',)
+         model=Host
+         fields=('hostname','ip_addr','asset_id','remark')
