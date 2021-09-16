@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/token/get',
+    url: '/users/token/get',
     method: 'post',
     data
   })
@@ -10,7 +10,7 @@ export function login(data) {
 
 export async function resettoken(data) {
   return await request({
-    url: '/token/refresh',
+    url: '/users/token/refresh',
     method: 'post',
     data
   })

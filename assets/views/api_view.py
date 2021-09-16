@@ -1,10 +1,8 @@
-import json
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from backend.views.serializers import HostSerializer
-from backend.models import Host
-from backend.forms import HostForm
+from assets.serializers import HostSerializer
+from assets.models import Host
+from assets.forms import HostForm
 from opsrobot.view import DocParam
 
 
@@ -41,3 +39,5 @@ class HostView(APIView):
 
     def put(self,request,host_name):
         return Response(host_name)
+
+

@@ -58,9 +58,9 @@
       <el-table-column align="center" label="操作">
         <template slot-scope="{row}">
           <template v-if="row.edit">
-           <span class="link-type" @click="add_book(row.hostname,row.ip_addr,row.asset_id,row.remark)">添加</span>
+           <span class="link-type" @click="add_host(row.hostname,row.ip_addr,row.asset_id,row.remark)">添加</span>
           </template>
-          <span class="link-type" @click="deletebook(row.hostname)" v-else>删除</span>
+          <span class="link-type" @click="delete_host(row.hostname)" v-else>删除</span>
         </template>
       </el-table-column>
       </el-table>
@@ -69,7 +69,7 @@
 
 <script>
 
-import { getBooks,setBook,delBook } from '@/api/test'
+import { getHosts,setHost,delHost } from '@/api/assets'
 import Sortable from 'sortablejs'
 export default {
   data() {
@@ -86,13 +86,13 @@ export default {
   },
   methods: {
     handleFetchPv(pv) {
-      getBooks(pv).then(response => {
+      getHosts(pv).then(response => {
         this.pvData = response
         this.dialogPvVisible = true
       })
     },
-    getbook(){
-          getBooks().then(response => {
+    gethost(){
+          getHosts().then(response => {
           const datas = response
           console.log(datas)
           this.tableData = datas
@@ -103,21 +103,21 @@ export default {
     },
     show() {
       return new Promise((resolve, reject) => {
-        this.getbook()
+        this.gethost()
       })
     },
-    deletebook(hostname){
-      delBook(hostname).then(response => {
-          this.getbook()
+    delete_host(hostname){
+      delHost(hostname).then(response => {
+          this.gethost()
       })
     },
     add_line(){
       this.new_data = {"hostname":null,"ip_addr":null,"asset_id":null,"remark":null,"add_time":null,"id":null,"edit":'1'}
       this.tableData.push(this.new_data)
     },
-    add_book(hostname,ip_addr,asset_id,remark){
-      setBook({"hostname":hostname,"ip_addr":ip_addr,"asset_id":asset_id,"remark":remark}).then(response => {
-        this.getbook()
+    add_host(hostname,ip_addr,asset_id,remark){
+      setHost({"hostname":hostname,"ip_addr":ip_addr,"asset_id":asset_id,"remark":remark}).then(response => {
+        this.gethost()
       })
     }
   },
