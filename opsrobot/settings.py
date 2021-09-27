@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'assets.apps.AssetsConfig',
+    'users.apps.UsersConfig',
     'corsheaders',
     'rest_framework',
     'rest_framework_swagger',
@@ -62,7 +63,7 @@ ROOT_URLCONF = 'opsrobot.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['opsrobot/frontend/dist'],
+        'DIRS': ['frontend/dist'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,7 +77,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'opsrobot.wsgi.application'
-
+AUTH_USER_MODEL = 'users.User'
 
 # Database
 # https:#docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -130,6 +131,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
+MEDIA_URL = '/api/media/'
 
 
 # Static files (CSS, JavaScript, Images)
