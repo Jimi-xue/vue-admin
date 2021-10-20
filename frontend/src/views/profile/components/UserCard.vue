@@ -6,22 +6,20 @@
 
     <div class="user-profile">
       <div class="box-center">
-        <pan-thumb v-on:error="user" :image="user.avatar" :height="'100px'" :width="'100px'" :hoverable="false" />
+        <pan-thumb :image="user.avatar" :height="'100px'" :width="'100px'" :hoverable="false" />
         <el-upload
           class="upload"
+          action=""
           accept="image/jpeg"
           :before-upload="beforeUpload"
-          :on-preview="handlePreview"
-          :on-remove="handleRemove"
-          :before-remove="beforeRemove"
           :limit="1"
-          :on-exceed="handleExceed">
+        >
           <el-button size="small" type="primary">点击上传头像</el-button>
         </el-upload>
       </div>
       <div class="box-center">
         <div class="user-name text-center">{{ user.name }}</div>
-        <div class="user-role text-center text-muted">{{ user.role | uppercaseFirst }}</div>
+        <div class="user-role text-center text-muted">{{ user.role }}</div>
       </div>
     </div>
 
@@ -75,18 +73,6 @@ export default {
       update_useravatar(fd).then(response => {
         this.user.avatar = response.avatar
       })
-    },
-    handleRemove(file, fileList) {
-      console.log(file, fileList)
-    },
-    handlePreview(file) {
-      console.log(file)
-    },
-    handleExceed(files, fileList) {
-      this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`)
-    },
-    beforeRemove(file, fileList) {
-      return this.$confirm(`确定移除 ${file.name}？`)
     }
   }
 }

@@ -1,12 +1,12 @@
 <template>
-  <el-form>
-    <el-form-item label="introduction">
+  <el-form :model="user" :rules="userRules">
+    <el-form-item label="introduction" prop="introduction">
       <el-input v-model.trim="user.introduction" />
     </el-form-item>
-    <el-form-item label="Email">
+    <el-form-item label="Email" prop="email">
       <el-input v-model.trim="user.email" />
     </el-form-item>
-    <el-form-item label="Phone">
+    <el-form-item label="Phone" prop="phone">
       <el-input v-model.trim="user.phone" />
     </el-form-item>
     <el-form-item>
@@ -17,6 +17,8 @@
 
 <script>
 import { update_userinfo } from '@/api/user'
+import { validEmail, validNumber } from '@/utils/validate'
+
 export default {
   props: {
     user: {
@@ -27,6 +29,39 @@ export default {
           email: '',
           phone: ''
         }
+      }
+    }
+  },
+  data() {
+    const validateEmail = (rule, value, callback) => {
+      if (!validEmail(value)) {
+        callback(new Error('Please enter the email'))
+      } else {
+        callback()
+      }
+    }
+    const validatePhone = (rule, value, callback) => {
+      if (!validNumber(value)) {
+        callback(new Error('Please enter the number'))
+      } else if (value.length < 11) {
+        callback(new Error('Please enter the phone number for 11'))
+      } else {
+        callback()
+      }
+    }
+    const validateText = (rule, value, callback) => {
+      console.log(value)
+      if (!value) {
+        callback(new Error('Please enter the introduction'))
+      } else {
+        callback()
+      }
+    }
+    return {
+      userRules: {
+        introduction: [{ required: true, trigger: 'blur', validator: validateText }],
+        email: [{ required: true, trigger: 'blur', validator: validateEmail }],
+        phone: [{ required: true, trigger: 'blur', validator: validatePhone }]
       }
     }
   },
