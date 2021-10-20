@@ -1,6 +1,6 @@
 import { login, logout, getInfo } from '@/api/user'
 import { getToken, setToken, removeToken,
-  setRefresh,getRefresh,removeRefresh } from '@/utils/auth'
+  setRefresh, getRefresh, removeRefresh } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 
 const state = {
@@ -8,7 +8,10 @@ const state = {
   name: '',
   avatar: '',
   introduction: '',
-  roles: []
+  roles: [],
+  phone: '',
+  email: ''
+
 }
 
 const mutations = {
@@ -26,6 +29,12 @@ const mutations = {
   },
   SET_ROLES: (state, roles) => {
     state.roles = roles
+  },
+  SET_PHONE: (state, phone) => {
+    state.phone = phone
+  },
+  SET_EMAIL: (state, email) => {
+    state.email = email
   }
 }
 
@@ -50,23 +59,28 @@ const actions = {
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
-        const { data } = response
+        const data = response
+        console.log(data)
 
         if (!data) {
           reject('Verification failed, please Login again.')
         }
 
-        const { roles, name, avatar, introduction } = data
-
+        const { avatar, email, introduction, phone, username } = data
+        const roles = ['admin']
+        data.roles = roles
         // roles must be a non-empty array
         if (!roles || roles.length <= 0) {
           reject('getInfo: roles must be a non-null array!')
         }
 
         commit('SET_ROLES', roles)
-        commit('SET_NAME', name)
+        commit('SET_NAME', username)
         commit('SET_AVATAR', avatar)
         commit('SET_INTRODUCTION', introduction)
+        commit('SET_PHONE', phone)
+        commit('SET_EMAIL', email)
+
         resolve(data)
       }).catch(error => {
         reject(error)

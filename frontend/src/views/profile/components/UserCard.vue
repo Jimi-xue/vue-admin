@@ -6,10 +6,18 @@
 
     <div class="user-profile">
       <div class="box-center">
-        <pan-thumb :image="user.avatar" :height="'100px'" :width="'100px'" :hoverable="false">
-          <div>Hello</div>
-          {{ user.role }}
-        </pan-thumb>
+        <pan-thumb v-on:error="user" :image="user.avatar" :height="'100px'" :width="'100px'" :hoverable="false" />
+        <el-upload
+          class="upload"
+          accept="image/jpeg"
+          :before-upload="beforeUpload"
+          :on-preview="handlePreview"
+          :on-remove="handleRemove"
+          :before-remove="beforeRemove"
+          :limit="1"
+          :on-exceed="handleExceed">
+          <el-button size="small" type="primary">点击上传头像</el-button>
+        </el-upload>
       </div>
       <div class="box-center">
         <div class="user-name text-center">{{ user.name }}</div>
@@ -19,32 +27,19 @@
 
     <div class="user-bio">
       <div class="user-education user-bio-section">
-        <div class="user-bio-section-header"><svg-icon icon-class="education" /><span>Education</span></div>
+        <div class="user-bio-section-header"><svg-icon icon-class="education" /><span>introduction</span></div>
         <div class="user-bio-section-body">
           <div class="text-muted">
-            JS in Computer Science from the University of Technology
+            {{ user.introduction }}
           </div>
         </div>
       </div>
 
       <div class="user-skills user-bio-section">
-        <div class="user-bio-section-header"><svg-icon icon-class="skill" /><span>Skills</span></div>
+        <div class="user-bio-section-header"><svg-icon icon-class="skill" /><span>last login</span></div>
         <div class="user-bio-section-body">
           <div class="progress-item">
-            <span>Vue</span>
-            <el-progress :percentage="70" />
-          </div>
-          <div class="progress-item">
-            <span>JavaScript</span>
-            <el-progress :percentage="18" />
-          </div>
-          <div class="progress-item">
-            <span>Css</span>
-            <el-progress :percentage="12" />
-          </div>
-          <div class="progress-item">
-            <span>ESLint</span>
-            <el-progress :percentage="100" status="success" />
+            <li>{{ user.last_login }}</li>
           </div>
         </div>
       </div>
@@ -54,6 +49,7 @@
 
 <script>
 import PanThumb from '@/components/PanThumb'
+import { update_useravatar } from '@/api/user'
 
 export default {
   components: { PanThumb },
@@ -65,9 +61,32 @@ export default {
           name: '',
           email: '',
           avatar: '',
-          role: ''
+          role: '',
+          introduction: ''
         }
       }
+    }
+  },
+  methods: {
+    beforeUpload(file) {
+      console.log(file)
+      var fd = new window.FormData()
+      fd.append('avatar', file, file.name)
+      update_useravatar(fd).then(response => {
+        this.user.avatar = response.avatar
+      })
+    },
+    handleRemove(file, fileList) {
+      console.log(file, fileList)
+    },
+    handlePreview(file) {
+      console.log(file)
+    },
+    handleExceed(files, fileList) {
+      this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`)
+    },
+    beforeRemove(file, fileList) {
+      return this.$confirm(`确定移除 ${file.name}？`)
     }
   }
 }

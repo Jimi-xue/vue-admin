@@ -34,7 +34,7 @@ import UserCard from './components/UserCard'
 import Activity from './components/Activity'
 import Timeline from './components/Timeline'
 import Account from './components/Account'
-
+import { getInfo } from '@/api/user'
 export default {
   name: 'Profile',
   components: { UserCard, Activity, Timeline, Account },
@@ -48,7 +48,8 @@ export default {
     ...mapGetters([
       'name',
       'avatar',
-      'roles'
+      'roles',
+      'phone'
     ])
   },
   created() {
@@ -56,12 +57,18 @@ export default {
   },
   methods: {
     getUser() {
-      this.user = {
-        name: this.name,
-        role: this.roles.join(' | '),
-        email: 'admin@test.com',
-        avatar: this.avatar
+      getInfo().then(response => {
+        this.user = {
+          name: response.username,
+          avatar: response.avatar,
+          role: 'admin',
+          email: response.email,
+          phone: response.phone,
+          introduction: response.introduction,
+          last_login: response.last_login
+        }
       }
+      )
     }
   }
 }

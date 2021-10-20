@@ -18,9 +18,8 @@ export async function resettoken(data) {
 
 export function getInfo(token) {
   return request({
-    url: '/vue-element-admin/user/info',
-    method: 'get',
-    params: { token }
+    url: '/users/userinfo',
+    method: 'get'
   })
 }
 
@@ -28,5 +27,20 @@ export function logout() {
   return request({
     url: '/vue-element-admin/user/logout',
     method: 'post'
+  })
+}
+
+export function update_userinfo(data) {
+  return request({
+    url: '/users/userinfo',
+    method: 'put',
+    data
+  })
+}
+export function update_useravatar(data) {
+  return request({
+    url: '/users/useravatar',
+    method: 'post',
+    data
   })
 }

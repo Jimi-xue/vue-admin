@@ -7,7 +7,6 @@ export function getHosts() {
   })
 }
 export function setHost(data) {
-  console.log(data)
   return request({
     url: '/assets/add_host',
     method: 'post',

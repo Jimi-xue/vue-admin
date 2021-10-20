@@ -58,7 +58,7 @@ export default {
   border-radius: 50%;
   overflow: hidden;
   position: absolute;
-  transform-origin: 95% 40%;
+  /*transform-origin: 95% 40%;*/
   transition: all 0.3s ease-in-out;
 }
 
@@ -132,11 +132,11 @@ export default {
 }
 
 .pan-item:hover .pan-thumb {
-  transform: rotate(-110deg);
+  /*transform: rotate(-110deg);*/
 }
 
 .pan-item:hover .pan-info p a {
   opacity: 1;
-  transform: translateX(0px) rotate(0deg);
+  /*transform: translateX(0px) rotate(0deg);*/
 }
 </style>

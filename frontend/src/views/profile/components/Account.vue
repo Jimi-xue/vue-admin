@@ -1,10 +1,13 @@
 <template>
   <el-form>
-    <el-form-item label="Name">
-      <el-input v-model.trim="user.name" />
+    <el-form-item label="introduction">
+      <el-input v-model.trim="user.introduction" />
     </el-form-item>
     <el-form-item label="Email">
       <el-input v-model.trim="user.email" />
+    </el-form-item>
+    <el-form-item label="Phone">
+      <el-input v-model.trim="user.phone" />
     </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="submit">Update</el-button>
@@ -13,24 +16,43 @@
 </template>
 
 <script>
+import { update_userinfo } from '@/api/user'
 export default {
   props: {
     user: {
       type: Object,
       default: () => {
         return {
-          name: '',
-          email: ''
+          introduction: '',
+          email: '',
+          phone: ''
         }
       }
     }
   },
   methods: {
     submit() {
-      this.$message({
-        message: 'User information has been updated successfully',
-        type: 'success',
-        duration: 5 * 1000
+      update_userinfo({
+        'introduction': this.user.introduction,
+        'email': this.user.email,
+        'phone': this.user.phone
+      }).then(response => {
+        if (response === 200) {
+          this.$message({
+            message: 'User information has been updated successfully',
+            type: 'success',
+            duration: 5 * 1000
+          })
+        } else {
+          this.$message({
+            message: response,
+            type: 'error',
+            duration: 5 * 1000
+          })
+        }
+      }).catch(err => {
+        // eslint-disable-next-line no-undef
+        reject(err)
       })
     }
   }
